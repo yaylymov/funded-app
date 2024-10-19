@@ -1,11 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4" style={{ backdropFilter: "blur(8px)", backgroundColor: "rgba(0, 0, 0, 0.8)", boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)" }}>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4" style={{
+            backdropFilter: "blur(8px)",
+            backgroundColor: "rgba(0, 0, 0, 0.8)",
+            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)"
+        }}>
             <div className="container-fluid">
-                <Link className="navbar-brand text-white" to="/">FUNDED</Link>
+                <Link className="navbar-brand text-white hoverable-text" to="/">FUNDED</Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -20,16 +24,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link text-white hover:text-secondary" to="/">Home</Link>
+                            <Link className="nav-link text-white hoverable-text" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hover:text-secondary" to="/identify">Identify</Link>
+                            <Link className="nav-link text-white hoverable-text" to="/identify">Identify</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hover:text-secondary" to="/apply">Apply</Link>
+                            <Link className="nav-link text-white hoverable-text" to="/apply">Apply</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hover:text-secondary" to="/manage">Manage</Link>
+                            <Link className="nav-link text-white hoverable-text" to="/manage">Manage</Link>
                         </li>
                     </ul>
                 </div>

@@ -10,19 +10,16 @@ import "./index.css";
 
 function App() {
     useEffect(() => {
-        // Select the circle element
         const circle = document.getElementById("mouse-circle");
         let mouseX = 0, mouseY = 0;
         let circleX = 0, circleY = 0;
 
-        // Function to move the circle with the mouse
         const moveCircle = (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
-            circle.style.opacity = "1"; // Ensure the circle is visible when mouse is moving
+            circle.style.opacity = "1";
         };
 
-        // Smooth animation loop to move the circle
         const animateCircle = () => {
             circleX += (mouseX - circleX) * 0.1;
             circleY += (mouseY - circleY) * 0.1;
@@ -33,38 +30,17 @@ function App() {
             requestAnimationFrame(animateCircle);
         };
 
-        // Function to change the circle interaction on hover
-        const mouseEnter = (e) => {
-            if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
-                circle.classList.add("mouse-hover-dark");
-            }
-        };
-
-        const mouseLeave = (e) => {
-            if (e.target.tagName === "A" || e.target.tagName === "BUTTON") {
-                circle.classList.remove("mouse-hover-dark");
-            }
-        };
-
-        // Function to handle when the mouse leaves the window
         const handleMouseLeavePage = () => {
-            circle.style.opacity = "0"; // Smoothly hide the circle
+            circle.style.opacity = "0";
         };
 
-        // Add event listeners
         window.addEventListener("mousemove", moveCircle);
-        window.addEventListener("mouseover", mouseEnter);
-        window.addEventListener("mouseout", mouseLeave);
         window.addEventListener("mouseleave", handleMouseLeavePage);
 
-        // Start the animation loop
         animateCircle();
 
-        // Cleanup listeners on component unmount
         return () => {
             window.removeEventListener("mousemove", moveCircle);
-            window.removeEventListener("mouseover", mouseEnter);
-            window.removeEventListener("mouseout", mouseLeave);
             window.removeEventListener("mouseleave", handleMouseLeavePage);
         };
     }, []);

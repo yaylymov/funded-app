@@ -23,13 +23,15 @@ body {
     pointer-events: none;
     z-index: 1000;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease-out, background-color 0.2s ease, opacity 0.3s ease-out;
+    transition: transform 0.1s ease-out, opacity 0.3s ease-out;
     opacity: 0; /* Initially hidden */
+    mix-blend-mode: difference; /* This will invert colors underneath */
 }
 
-.mouse-hover-dark {
-    background-color: #808080 !important;
+/* Add styles for the text that can be hovered */
+.hoverable-text {
+    color: white;
+    transition: color 0.2s ease;
 }
 
-
-
+/* Remove the .mouse-hover-dark class as it's no longer needed */
