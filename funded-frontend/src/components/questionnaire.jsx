@@ -7,10 +7,10 @@ function Questionnaire() {
     const [step, setStep] = useState(1);
     const [answers, setAnswers] = useState({
         state: '',
-        companySize: '',
+        company_size: '',
         areas: '',
-        grantsAmount: '',
-        revenue: ''
+        grants_amount: 0,
+        revenue: 0
     });
 
     const handleInputChange = (e) => {
@@ -25,7 +25,7 @@ function Questionnaire() {
             try {
                 const dataToSend = {
                     ...answers,
-                    grantsAmount: parseInt(answers.grantsAmount),
+                    grants_amount: parseInt(answers.grants_amount),
                     revenue: parseInt(answers.revenue)
                 };
                 console.log("Sending data:", dataToSend);

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from openpyxl import load_workbook
+import csv
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 
@@ -17,16 +17,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-file_path = 'data/funded-database.xlsx'
-wb = load_workbook(file_path)
-ws = wb.active
-
+file_path = 'data/funded_database.csv'
 
 class Questionnaire(BaseModel):
     state: str
-    companySize: str
+    company_size: str
     areas: str
-    grantsAmount: int
+    grants_amount: int
     revenue: int
 
 
@@ -36,28 +33,34 @@ def filter_grants(answers):
     """
     filtered_grants = []
 
-    for row in ws.iter_rows(min_row=2, values_only=True):
-        if any(cell is None for cell in row):
-            # Skip rows with missing data
-            continue
+    with open(file_path, newline='', encoding='utf-8') as database:
+        reader = csv.reader(database)
+        header = next(reader)
 
-        grant_option, state, company_size, area, grant_volume, funding_quota, approval_rate, benefit_cost_score = row
+        for row in reader:
+            if any(cell is None for cell in row):
+                print(f"The row='{row}' is skipped")
+                # Skip rows with missing data
+                continue
 
-        # For debugging reasons
-        print(
-            f"Comparing: state='{answers.state}' with '{state}', companySize='{answers.company_size}' with '{company_size}', areas='{answers.areas_active}' with '{area}'")
+            funding_option, state, grant_volume, funding_quota, approval_rate, company_size, areas, revenue_max, time_required, benefit_cost_score = row
 
-        # Filter logic based on the answers
-        if (answers.state.lower() in state.lower()) and \
-                (answers.company_size.lower() in company_size.lower()) and \
-                (answers.areas_active.lower() in area.lower()):
-            filtered_grants.append({
-                "funding_option": grant_option,
-                "grant_volume": grant_volume,
-                "funding_quota": funding_quota,
-                "approval_rate": approval_rate,
-                "benefit_cost_score": benefit_cost_score
-            })
+            # For debugging reasons
+            print(
+                f"Comparing: state='{answers.state}' with '{state}', companySize='{answers.company_size}' with '{company_size}', areas='{answers.areas}' with '{areas}'")
+
+            # Filter logic based on the answers
+            if (answers.state.lower() in state.lower()) and \
+                    (answers.company_size.lower() in company_size.lower()) and \
+                    (answers.areas.lower() in areas.lower()):
+                filtered_grants.append({
+                    "funding_option": funding_option,
+                    "grant_volume": grant_volume,
+                    "funding_quota": funding_quota,
+                    "approval_rate": approval_rate,
+                    "time_required": time_required,
+                    "benefit_cost_score": benefit_cost_score
+                })
 
     return filtered_grants
 

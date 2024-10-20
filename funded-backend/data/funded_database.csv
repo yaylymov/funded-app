@@ -1,0 +1,46 @@
+funding_option,state,grant_volume,funding_quota,approval_rate,company_size,areas,revenue_max,time_required,benefit_cost_score
+BMWi-Innovationsgutscheine (go-inno),"[""bundesweit""]",13750,50,30,Mittleres Unternehmen,"[""Beratung"", ""Forschung & Innovation""]",20000000,10,-9
+Start-up BW International,"[""Baden-Württemberg""]",20000,50,30,Großes Unternehmen,"[""Außenwirtschaft"", ""Existenzgründung & -festigung""]",20000000,10,-8
+Brandenburger Innovationsfachkräfte,"[""Brandenburg""]",29700,60,30,Kleinstunternehmen,"[""Arbeit"", ""Aus- & Weiterbildung"", ""Forschung & Innovation"", ""Frauenförderung""]",50000000,13,-4
+Coaching BONUS,"[""Berlin""]",16400,80,30,Mittleres Unternehmen,"[""Außenwirtschaft"", ""Beratung"", ""Existenzgründung & -festigung"", ""Unternehmensfinanzierung""]",50000000,13,-5
+Berliner Innovationsfachkräfte,"[""Berlin""]",20000,50,30,Kleinstunternehmen,"[""Arbeit"", ""Forschung & Innovation""]",50000000,6,-8
+Digitalisierung und Arbeit 4.0,"[""Bremen""]",5000,50,30,Mittleres Unternehmen,"[""Beratung"", ""Unternehmensfinanzierung"", ""Digitalisierung""]",50000000,6,-10
+Digitalisierungsprämie Plus – Zuschussvariante,"[""Baden-Württemberg""]",10000,50,30,Kleinstunternehmen,"[""Unternehmensfinanzierung"", ""Digitalisierung""]",50000000,6,-9
+Entwicklungspartnerschaften mit der Wirtschaft – develoPPP Ventures,"[""bundesweit""]",100000,50,30,Großes Unternehmen,"[""Außenwirtschaft"", ""Existenzgründung & -festigung"", ""Frauenförderung""]",50000000,13,-3
+Förderung digitaler Spiele,"[""Bayern""]",200000,80,30,Kleinstunternehmen,"[""Kultur"", ""Medien & Sport"", ""Digitalisierung""]",50000000,13,-1
+GründungsBONUS – Unterstützung der Aufbauphase von Existenzgründungen und Startups,"[""Berlin""]",50000,50,30,Kleines Unternehmen,"[""Existenzgründung & -festigung""]",10000000,13,-4
+Niedersächsisches Innovationsförderprogramm für Forschung und Entwicklung in Unternehmen,"[""Niedersachsen""]",500000,45,30,Mittleres Unternehmen,"[""Forschung & Innovation""]",50000000,50,4
+Unternehmensgründungen in den Quantentechnologien und der Photonik (Enabling Start-up),"[""bundesweit""]",100000,50,30,Mittleres Unternehmen,"[""Forschung & Innovation""]",100000000,13,-3
+Bayerisches Förderprogramm „Technologieorientierte Unternehmensgründungen“ (BayTOU),"[""Bayern""]",150000,45,30,Kleines Unternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation""]",1000000,40,0
+Thüringen-Dynamik,"[""Thüringen""]",500000,100,30,Mittleres Unternehmen,"[""Existenzgründung & -festigung"", ""Unternehmensfinanzierung""]",50000000,50,5
+Medizintechnik – Medizintechnische Lösungen in die Patientenversorgung überführen,"[""bundesweit""]",5000000,100,30,Kleines Unternehmen,"[""Forschung & Innovation""]",50000000,50,6
+Förderung einzelbetrieblicher Investitionen und ergänzender CO2-Einsparmaßnahmen („Niedersachsen Invest EFRE“),"[""Niedersachsen""]",8250000,60,30,Kleines Unternehmen,"[""Arbeit"", ""Energieeffizienz & Erneuerbare Energien"", ""Regionalförderung"", ""Unternehmensfinanzierung""]",50000000,65,7
+Produktionsintegrierter Umweltschutz – PIUS-Beratung,"[""Hessen""]",500000,30,30,Mittleres Unternehmen,"[""Umwelt- & Naturschutz"", ""Energieeffizienz & Erneuerbare Energien"", ""Beratung""]",50000000,40,1
+Digitalisierung Zuschuss EFRE – Transformationsprojekte,"[""Sachsen""]",50000,70,30,Kleinstunternehmen,"[""Digitalisierung"", ""Unternehmensfinanzierung""]",50000000,10,-7
+Gründung Innovativ,"[""Brandenburg""]",150000,50,30,Großes Unternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation"", ""Unternehmensfinanzierung""]",10000000,13,-2
+"Förderung der Forschung, Entwicklung und Innovation (FEI)","[""Bremen""]",200000,50,30,Mittleres Unternehmen,"[""Forschung & Innovation""]",50000000,50,3
+"Förderung von Forschung, Technologie und Innovation (FTI-Thüringen TECHNOLOGIE)","[""Thüringen""]",50000,50,30,Großes Unternehmen,"[""Forschung & Innovation"", ""Mobilität""]",50000000,10,-7
+Mittelstand Innovativ & Digital (MID)-Digitale Sicherheit,"[""Nordrhein-Westfalen""]",15000,80,30,Mittleres Unternehmen,"[""Beratung"", ""Digitalisierung"", ""Unternehmensfinanzierung""]",50000000,6,-8
+Mittelstand Innovativ & Digital (MID) – Gutscheine,"[""Nordrhein-Westfalen""]",15000,80,30,Kleinstunternehmen,"[""Forschung & Innovation"", ""Beratung"", ""Digitalisierung""]",50000000,6,-8
+Mittelstand Innovativ & Digital (MID)-Assistent/in,"[""Nordrhein-Westfalen""]",48000,100,30,Kleines Unternehmen,"[""Forschung & Innovation"", ""Digitalisierung""]",10000000,6,-6
+Bundesförderung für Energie- und Ressourceneffizienz in der Wirtschaft – Zuschuss: Modul 1 Querschnittstechnologien,"[""bundesweit""]",200000,25,30,Großes Unternehmen,"[""Energieeffizienz & Erneuerbare Energien"", ""Unternehmensfinanzierung""]",50000000,13,-3
+Bundesförderung für Energie- und Ressourceneffizienz in der Wirtschaft – Zuschuss: Modul 6 Elektrifizierung von kleinen Unternehmen,"[""bundesweit""]",200000,33,30,Kleinstunternehmen,"[""Energieeffizienz & Erneuerbare Energien"", ""Unternehmensfinanzierung""]",10000000,13,-3
+InnoRampUp,"[""Hamburg""]",150000,100,30,Kleines Unternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation"", ""Unternehmensfinanzierung""]",10000000,13,-1
+InnoFounder,"[""Hamburg""]",75000,100,30,Mittleres Unternehmen,"[""Forschung & Innovation"", ""Existenzgründung & -festigung""]",500000,13,-2
+EFRE/JTF-Technologieförderung 2021 bis 2027 – InnoPrämie,"[""Sachsen""]",40000,50,30,Kleinstunternehmen,"[""Forschung & Innovation""]",50000000,10,-7
+Förderung von Unternehmensneugründungen im Bereich Digitalisierung (Start?Zuschuss!),"[""Bayern""]",36000,50,30,Mittleres Unternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation"", ""Digitalisierung""]",50000000,13,-4
+KMU-innovativ: Materialforschung (ProMat_KMU),"[""bundesweit""]",20000000,80,30,Großes Unternehmen,"[""Forschung & Innovation"", ""Mobilität""]",100000000,50,7
+Landesprogramm Wirtschaft 2021–2027 – Einstiegsförderung für Innovationsvorhaben von KMU (EIK) – Seed-Bonus und SeedInvest-Bonus,"[""Schleswig-Holstein""]",104000,80,30,Kleinstunternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation""]",10000000,13,-2
+Landesprogramm Wirtschaft 2021–2027 – Einstiegsförderung für Innovationsvorhaben von KMU (EIK) – Transfer-Bonus und HighTech-Bonus,"[""Schleswig-Holstein""]",52500,70,30,Kleines Unternehmen,"[""Forschung & Innovation""]",50000000,10,-6
+KMU-innovativ: Ressourcen und Kreislaufwirtschaft,"[""bundesweit""]",35000000,100,30,Großes Unternehmen,"[""Energieeffizienz & Erneuerbare Energien"", ""Forschung & Innovation""]",50000000,50,7
+Landesprogramm Wirtschaft 2021–2027 – Digitalisierungsmaßnahmen in kleinen Unternehmen (DKU),"[""Schleswig-Holstein""]",80000,40,30,Kleines Unternehmen,"[""Digitalisierung"", ""Unternehmensfinanzierung""]",10000000,6,-7
+Innovationsprogramm für Geschäftsmodelle und Pionierlösungen (IGP),"[""bundesweit""]",600000,100,30,Mittleres Unternehmen,"[""Forschung & Innovation""]",50000000,50,5
+Förderung von Beratungsleistungen zur Unterstützung bei der Antragstellung im Zusammenhang mit einer EU-Fördermaßnahme – „Horizont Impuls“ –,"[""Niedersachsen""]",30000,50,30,Mittleres Unternehmen,"[""Beratung"", ""Forschung & Innovation""]",50000000,6,-7
+Stärkung des Gründungsgeschehens in den Lebenswissenschaften „GO-Bio next“,"[""bundesweit""]",55000000,100,30,Kleinstunternehmen,"[""Existenzgründung & -festigung"", ""Forschung & Innovation""]",50000000,65,9
+Gründungs- und Mittelstandsförderung (GuM) – Zuschuss zu Digitalisierungsmaßnahmen (DIGI-Zuschuss),"[""Hessen""]",10000,50,30,Kleines Unternehmen,"[""Unternehmensfinanzierung"", ""Digitalisierung""]",50000000,6,-9
+Nutzung und Bau von Demonstrationsanlagen für die industrielle Bioökonomie,"[""bundesweit""]",2000000,100,30,Kleines Unternehmen,"[""Forschung & Innovation""]",50000000,50,6
+Förderung aus dem Zentralen Innovationsprogramm Mittelstand (ZIM) – FuE-Kooperationsprojekte,"[""bundesweit""]",2300000,60,30,Mittleres Unternehmen,"[""Forschung & Innovation""]",50000000,50,5
+Förderung aus dem Zentralen Innovationsprogramm Mittelstand (ZIM) - FuE-Einzelprojekte,"[""bundesweit""]",550000,45,30,Großes Unternehmen,"[""Forschung & Innovation""]",50000000,50,4
+Digitalbonus Bayern,"[""Bayern""]",30000,50,30,Kleinstunternehmen,"[""Unternehmensfinanzierung"", ""Digitalisierung""]",50000000,6,-7
+Digitalbonus Thüringen,"[""Thüringen""]",15000,50,30,Kleines Unternehmen,"[""Unternehmensfinanzierung"", ""Digitalisierung""]",50000000,6,-9
+Hamburg Digital,"[""Hamburg""]",17000,30,30,Mittleres Unternehmen,"[""Beratung"", ""Digitalisierung"", ""Unternehmensfinanzierung""]",50000000,6,-9
