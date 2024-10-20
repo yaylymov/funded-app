@@ -3,15 +3,12 @@ from pydantic import BaseModel
 from openpyxl import load_workbook
 from fastapi.middleware.cors import CORSMiddleware
 import logging
-from typing import List
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -20,13 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load the Excel file
 file_path = 'data/funded-database.xlsx'
 wb = load_workbook(file_path)
 ws = wb.active
 
 
-# Data model for Questionnaire
 class Questionnaire(BaseModel):
     state: str
     companySize: str
@@ -35,45 +30,35 @@ class Questionnaire(BaseModel):
     revenue: int
 
 
-def filter_grants(answers: Questionnaire) -> List[dict]:
+def filter_grants(answers):
     """
     This function filters grants from the Excel sheet based on the given answers.
     """
     filtered_grants = []
+
     for row in ws.iter_rows(min_row=2, values_only=True):
-        funding_option, state, grant_volume, funding_quota, approval_rate, company_size, areas = row[:7]
+        if any(cell is None for cell in row):
+            # Skip rows with missing data
+            continue
 
-        # Convert state and areas to lists if they're strings
-        state_list = eval(state) if isinstance(state, str) else state
-        areas_list = eval(areas) if isinstance(areas, str) else areas
+        grant_option, state, company_size, area, grant_volume, funding_quota, approval_rate, benefit_cost_score = row
 
-        logger.info(f"Comparing: state='{answers.state}' with '{state_list}', "
-                    f"companySize='{answers.companySize}' with '{company_size}', "
-                    f"areas='{answers.areas}' with '{areas_list}'")
+        # For debugging reasons
+        print(
+            f"Comparing: state='{answers.state}' with '{state}', companySize='{answers.company_size}' with '{company_size}', areas='{answers.areas_active}' with '{area}'")
 
-        # Check if the answer state is in the list of states for the grant
-        state_match = any(answers.state.lower() in s.lower() for s in state_list)
-
-        # Check if the company size matches
-        size_match = answers.companySize.lower() in company_size.lower()
-
-        # Check if any of the areas match
-        area_match = any(area.lower() in answers.areas.lower() for area in areas_list)
-
-        # Check if the grant amount is within the user's requested amount
-        grant_amount_match = grant_volume <= answers.grantsAmount
-
-        if state_match and size_match and area_match and grant_amount_match:
+        # Filter logic based on the answers
+        if (answers.state.lower() in state.lower()) and \
+                (answers.company_size.lower() in company_size.lower()) and \
+                (answers.areas_active.lower() in area.lower()):
             filtered_grants.append({
-                "funding_option": funding_option,
+                "funding_option": grant_option,
                 "grant_volume": grant_volume,
                 "funding_quota": funding_quota,
                 "approval_rate": approval_rate,
-                "company_size": company_size,
-                "areas": areas_list
+                "benefit_cost_score": benefit_cost_score
             })
 
-    logger.info(f"Found {len(filtered_grants)} matching grants")
     return filtered_grants
 
 
