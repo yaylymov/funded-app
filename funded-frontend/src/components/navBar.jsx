@@ -3,10 +3,9 @@ import {Link} from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-4" style={{
+        <nav className="navbar navbar-expand-lg navbar-dark p-4" style={{
             backdropFilter: "blur(8px)",
-            backgroundColor: "rgba(0, 0, 0, 0.8)",
-            boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)"
+            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.3)"
         }}>
             <div className="container-fluid">
                 <Link className="navbar-brand text-white hoverable-text" to="/">FUNDED</Link>

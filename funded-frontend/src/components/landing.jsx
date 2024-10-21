@@ -13,7 +13,7 @@ function Landing() {
     };
 
     return (
-        <div className="d-flex flex-column align-items-center justify-content-center vh-100 bg-dark text-white">
+        <div className="d-flex flex-column align-items-center justify-content-center vh-100 text-white">
             <h2 className="display-4 mb-6 font-bold text-center hoverable-text">Discover Your Potential for Non-Dilutive
                 Fundraising</h2>
             <form onSubmit={handleSubmit} className="d-flex flex-column align-items-center w-100"
@@ -27,12 +27,12 @@ function Landing() {
                 />
                 <button
                     type="submit"
-                    className="btn btn-warning text-white px-5 py-2 hoverable-text"
+                    className="button px-5 py-2 hoverable-text"
                 >
                     Go
                 </button>
             </form>
-            <p className="text-muted mt-4 hoverable-text">We use your email to extract your domain for tailored
+            <p className="mt-4 hoverable-text">We use your email to extract your domain for tailored
                 recommendations.</p>
         </div>
     );

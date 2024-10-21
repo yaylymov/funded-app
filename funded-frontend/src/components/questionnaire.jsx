@@ -31,10 +31,10 @@ function Questionnaire() {
                 console.log("Sending data:", dataToSend);
                 const response = await axios.post('http://localhost:8000/questions', dataToSend);
                 console.log("Received data:", response.data);
-                navigate('/results', {state: {data: response.data}});
+                navigate('/loading', {state: {data: response.data}});
             } catch (error) {
                 console.error("Error processing answers:", error);
-                navigate('/results', {state: {data: []}});
+                navigate('/loading', {state: {data: []}});
             }
         }
     };
@@ -43,15 +43,15 @@ function Questionnaire() {
         {label: "In which state is your business based?", name: "state"},
         {
             label: "What is your company size? (e.g., Kleines Unternehmen, Mittleres Unternehmen, Großes Unternehmen)",
-            name: "companySize"
+            name: "company_size"
         },
         {label: "In which areas are you active? (e.g., Forschung & Innovation, Digitalisierung)", name: "areas"},
-        {label: "What is the maximum grant amount you're looking for?", name: "grantsAmount"},
+        {label: "What is the maximum grant amount you're looking for?", name: "grants_amount"},
         {label: "What is your monthly revenue?", name: "revenue"}
     ];
 
     return (
-        <div className="vh-100 d-flex flex-column align-items-center justify-content-center bg-dark text-white">
+        <div className="vh-100 d-flex flex-column align-items-center justify-content-center text-white">
             <h2 className="text-3xl mb-4 font-semibold hoverable-text">{questions[step - 1].label}</h2>
             <form onSubmit={handleNext} className="w-100" style={{maxWidth: "400px"}}>
                 <input
@@ -63,12 +63,12 @@ function Questionnaire() {
                 />
                 <button
                     type="submit"
-                    className="btn btn-warning text-white px-5 py-2 hoverable-text"
+                    className="button px-5 py-2 hoverable-text"
                 >
                     {step < 5 ? "Next" : "Submit"}
                 </button>
             </form>
-            <p className="text-muted mt-4 hoverable-text">Step {step} of 5</p>
+            <p className="mt-4 hoverable-text">Step {step} of 5</p>
         </div>
     );
 }

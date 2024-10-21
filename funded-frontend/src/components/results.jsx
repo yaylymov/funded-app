@@ -25,7 +25,7 @@ function Results() {
                     ))}
                 </div>
             ) : (
-                <p className="text-muted text-center">No grants available based on your criteria.</p>
+                <p className="text-center">No grants available based on your criteria.</p>
             )}
         </div>
     );
