@@ -17,7 +17,8 @@ function Questionnaire() {
         setAnswers({...answers, [e.target.name]: e.target.value});
     };
 
-    const handleNext = async () => {
+    const handleNext = async (e) => {
+        e.preventDefault()
         if (step < 5) {
             setStep(step + 1);
         } else {

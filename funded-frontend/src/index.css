@@ -34,6 +34,7 @@ button {
 
 button:hover {
     background-color: #e04a01;
+    transform: scale(1.05);
 }
 
 nav {
@@ -41,6 +42,8 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1000;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .construction-animation {
@@ -111,4 +114,22 @@ nav {
         height: 100px;
         transform: translateX(-50%) rotate(-45deg);
     }
+}
+
+.table {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.shadow-lg {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+td, th {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.main-content {
+    margin-top: 100px;
 }

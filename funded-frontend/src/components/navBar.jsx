@@ -3,10 +3,7 @@ import {Link} from "react-router-dom";
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark position-sticky p-4" style={{
-            backdropFilter: "blur(6px)",
-            boxShadow: "0 10px 10px rgba(0, 0, 0, 0.3)"
-        }}>
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top p-4">
             <div className="container-fluid">
                 <Link className="navbar-brand text-white" to="/">FUNDED</Link>
                 <button
