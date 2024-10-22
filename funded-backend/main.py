@@ -70,10 +70,39 @@ def filter_grants(answers):
     return filtered_grants
 
 
+def load_all_grants():
+    filtered_grants = []
+
+    with open(file_path, newline='', encoding='utf-8') as database:
+        reader = csv.reader(database)
+        header = next(reader)
+
+        for row in reader:
+            if any(cell is None for cell in row):
+                print(f"The row='{row}' is skipped")
+                continue
+
+            funding_option, state, grant_volume, funding_quota, approval_rate, company_size, areas, revenue_max, time_required, benefit_cost_score = row
+
+            filtered_grants.append({
+                "funding_option": funding_option,
+                "state": state,
+                "grant_volume": grant_volume,
+                "funding_quota": funding_quota,
+                "approval_rate": approval_rate,
+                "company_size": company_size,
+                "areas": areas,
+                "revenue_max": revenue_max,
+                "time_required": time_required,
+                "benefit_cost_score": benefit_cost_score
+            })
+    return filtered_grants
+
+
 @app.get("/grants")
 async def get_all_grants():
     try:
-        grants = filter_grants()
+        grants = load_all_grants()
         return grants
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
