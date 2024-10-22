@@ -1,7 +1,7 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
 
-function Results() {
+function Identify() {
     const location = useLocation();
     const data = location.state?.data || [];
 
@@ -31,4 +31,4 @@ function Results() {
     );
 }
 
-export default Results;
+export default Identify;

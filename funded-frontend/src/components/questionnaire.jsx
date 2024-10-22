@@ -52,7 +52,7 @@ function Questionnaire() {
 
     return (
         <div className="vh-100 d-flex flex-column align-items-center justify-content-center text-white">
-            <h2 className="text-3xl mb-4 font-semibold hoverable-text">{questions[step - 1].label}</h2>
+            <h2 className="text-3xl mb-4 font-semibold">{questions[step - 1].label}</h2>
             <form onSubmit={handleNext} className="w-100" style={{maxWidth: "400px"}}>
                 <input
                     type="text"
@@ -63,12 +63,12 @@ function Questionnaire() {
                 />
                 <button
                     type="submit"
-                    className="button px-5 py-2 hoverable-text"
+                    className="button px-5 py-2"
                 >
                     {step < 5 ? "Next" : "Submit"}
                 </button>
             </form>
-            <p className="mt-4 hoverable-text">Step {step} of 5</p>
+            <p className="mt-4">Step {step} of 5</p>
         </div>
     );
 }

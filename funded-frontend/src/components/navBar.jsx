@@ -8,7 +8,7 @@ function NavBar() {
             boxShadow: "0 10px 10px rgba(0, 0, 0, 0.3)"
         }}>
             <div className="container-fluid">
-                <Link className="navbar-brand text-white hoverable-text" to="/">FUNDED</Link>
+                <Link className="navbar-brand text-white" to="/">FUNDED</Link>
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -23,16 +23,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <Link className="nav-link text-white hoverable-text" to="/">Home</Link>
+                            <Link className="nav-link text-white" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hoverable-text" to="/identify">Identify</Link>
+                            <Link className="nav-link text-white" to="/identify">Identify</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hoverable-text" to="/apply">Apply</Link>
+                            <Link className="nav-link text-white" to="/apply">Apply</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link text-white hoverable-text" to="/manage">Manage</Link>
+                            <Link className="nav-link text-white" to="/manage">Manage</Link>
                         </li>
                     </ul>
                 </div>

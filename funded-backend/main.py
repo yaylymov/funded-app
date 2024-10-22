@@ -19,6 +19,7 @@ app.add_middleware(
 
 file_path = 'data/funded_database.csv'
 
+
 class Questionnaire(BaseModel):
     state: str
     company_size: str
@@ -29,7 +30,7 @@ class Questionnaire(BaseModel):
 
 def filter_grants(answers):
     """
-    This function filters grants from the Excel sheet based on the given answers.
+    This function loads all grants from the CSV file.
     """
     filtered_grants = []
 
@@ -55,14 +56,28 @@ def filter_grants(answers):
                     (answers.areas.lower() in areas.lower()):
                 filtered_grants.append({
                     "funding_option": funding_option,
+                    "state": state,
                     "grant_volume": grant_volume,
                     "funding_quota": funding_quota,
                     "approval_rate": approval_rate,
+                    "company_size": company_size,
+                    "areas": areas,
+                    "revenue_max": revenue_max,
                     "time_required": time_required,
                     "benefit_cost_score": benefit_cost_score
                 })
 
     return filtered_grants
+
+
+@app.get("/grants")
+async def get_all_grants():
+    try:
+        grants = filter_grants()
+        return grants
+    except Exception as e:
+        logger.error(f"An error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while getting all grants: {str(e)}")
 
 
 @app.post("/questions")
@@ -74,7 +89,7 @@ async def process_questionnaire(data: Questionnaire):
         return filtered_grants
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"An error occurred: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"An error occurred while sending data to questions: {str(e)}")
 
 
 @app.get("/")
