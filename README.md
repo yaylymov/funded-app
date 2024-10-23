@@ -15,6 +15,12 @@ Run this command in the funded-backend directory to install required python libr
 
 `pip install -r requirements.txt`
 
+### Setup the virtual environment for the frontend
+
+Run these commands: 
+1. `npm install`
+2. `npm install axios react-router-dom`
+3. `npm install -D tailwindcss`
 
 ## Frontend
 Run this command to launch the frontend:
@@ -27,7 +33,7 @@ Run this command to launch the backend:
 `uvicorn main:app --reload`
 
 
-## Limitation
+## Limitations
 I haven't implemented the Login Logic.
 So there is no functionality to login or register.
 You can just type any valid email and it won't happen anything.
@@ -36,3 +42,7 @@ whatsoever.
 
 ### !!! Add to my List button !!!
 The Add to my List button in the Results and Identify pages does nothing.
+
+
+## Personal setup
+I used Linux Ubuntu as my development OS and PyCharm as an IDE
