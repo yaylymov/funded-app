@@ -1,16 +1,22 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 
 function Identify() {
     const [data, setData] = useState([]);
     const navigate = useNavigate();
+    const [filteredData, setFilteredData] = useState([]);
+    const [sortCriteria, setSortCriteria] = useState(null);
+    const [sortOrder, setSortOrder] = useState("asc");
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:8000/grants");
                 setData(response.data);
+                setFilteredData(response.data);
             } catch (error) {
                 console.error("Error fetching grants:", error);
             }
@@ -29,14 +35,67 @@ function Identify() {
         return numScore < 0 ? "Low" : numScore <= 5 ? "Medium" : "High";
     };
 
+    const handleSortChange = (criteria) => {
+        if (sortCriteria === criteria) {
+            setSortOrder((prevOrder) => (prevOrder === "asc" ? "desc" : "asc"));
+        } else {
+            setSortCriteria(criteria);
+            setSortOrder("asc");
+        }
+    };
+
+    useEffect(() => {
+        let sortedData = [...filteredData];
+        if (sortCriteria) {
+            sortedData.sort((a, b) => {
+                let valueA, valueB;
+
+                if (sortCriteria === "Grant Volume") {
+                    valueA = parseInt(a.grant_volume);
+                    valueB = parseInt(b.grant_volume);
+                } else if (sortCriteria === "Funding Quota") {
+                    valueA = parseInt(a.funding_quota);
+                    valueB = parseInt(b.funding_quota);
+                } else if (sortCriteria === "Approval Rate") {
+                    valueA = parseInt(a.approval_rate);
+                    valueB = parseInt(b.approval_rate);
+                } else if (sortCriteria === "Time Required") {
+                    valueA = parseInt(a.time_required);
+                    valueB = parseInt(b.time_required);
+                } else if (sortCriteria === "Benefit-Cost Score") {
+                    const order = {"Low": 1, "Medium": 2, "High": 3};
+                    valueA = order[formatBenefitCostScore(a.benefit_cost_score)];
+                    valueB = order[formatBenefitCostScore(b.benefit_cost_score)];
+                }
+
+                if (valueA < valueB) return sortOrder === "asc" ? -1 : 1;
+                if (valueA > valueB) return sortOrder === "asc" ? 1 : -1;
+                return 0;
+            });
+        }
+        setFilteredData(sortedData);
+    }, [sortCriteria, sortOrder, data]);
+
     return (
         <div className="main-content container vh-100 py-5 text-white">
             <h2 className="display-5 mb-4 font-bold text-center">Available Non-Dilutive Fundraising Options</h2>
-            <button className="btn btn-secondary mb-3" onClick={() => navigate(-1)}>Go Back</button>
-            {data.length > 0 ? (
+
+            <div className="d-flex justify-content-between align-items-center mb-4">
+                <button className="btn btn-secondary mb-2" onClick={() => navigate(-1)}>Go Back</button>
+                <DropdownButton id="dropdown-basic-button" title="Sort" className="mb-2">
+                    <Dropdown.Item onClick={() => handleSortChange("Grant Volume")}>Grant Volume</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleSortChange("Funding Quota")}>Funding Quota</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleSortChange("Approval Rate")}>Approval Rate</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleSortChange("Time Required")}>Time Required</Dropdown.Item>
+                    <Dropdown.Item onClick={() => handleSortChange("Benefit-Cost Score")}>Benefit-Cost
+                        Score</Dropdown.Item>
+                </DropdownButton>
+            </div>
+
+            {filteredData.length > 0 ? (
                 <div className="table-responsive">
-                    <table className="table table-dark table-striped table-bordered shadow-lg rounded">
-                        <thead className="thead-light">
+                    <table className="table table-dark table-striped shadow-lg rounded">
+                        <thead className="thead-light custom-table-header">
                         <tr>
                             <th>Funding Option</th>
                             <th>Grant Volume</th>
@@ -48,16 +107,16 @@ function Identify() {
                         </tr>
                         </thead>
                         <tbody>
-                        {data.map((grant, index) => (
+                        {filteredData.map((grant, index) => (
                             <tr key={index} className="shadow-sm">
                                 <td>{grant.funding_option}</td>
-                                <td>{formatGrantVolume(grant.grant_volume)} €</td>
+                                <td>{formatGrantVolume(grant.grant_volume)}</td>
                                 <td>{grant.funding_quota} %</td>
                                 <td>{grant.approval_rate} %</td>
                                 <td>{grant.time_required} months</td>
                                 <td>{formatBenefitCostScore(grant.benefit_cost_score)}</td>
                                 <td>
-                                    <button className="button button-hover">Add to My List</button>
+                                    <button className="button-list">Add to My List</button>
                                 </td>
                             </tr>
                         ))}
