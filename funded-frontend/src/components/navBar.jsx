@@ -1,11 +1,25 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {resetQuestionnaire} from "./questionnaireSlice";
 
 function NavBar() {
+    const dispatch = useDispatch();
+
+    const handleResetQuestionnaire = () => {
+        dispatch(resetQuestionnaire());
+    };
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark fixed-top p-4">
             <div className="container-fluid">
-                <Link className="navbar-brand text-white" to="/">FUNDED</Link>
+                <Link
+                    className="navbar-brand text-white"
+                    to="/"
+                    onClick={handleResetQuestionnaire}
+                >
+                    FUNDED
+                </Link>
                 <button
                     className="navbar-toggler"
                     type="button"
