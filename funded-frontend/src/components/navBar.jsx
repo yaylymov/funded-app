@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {resetQuestionnaire} from "./questionnaireSlice";
+import {resetQuestionnaire} from "../redux/questionnaireSlice.js";
 
 function NavBar() {
     const dispatch = useDispatch();

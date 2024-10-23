@@ -29,7 +29,8 @@ const questionnaireSlice = createSlice({
             }
         },
         resetQuestionnaire: (state) => {
-            return initialState;
+            state.step = 1;
+            state.answers = initialState.answers;
         },
     },
 });

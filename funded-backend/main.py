@@ -28,11 +28,27 @@ class Questionnaire(BaseModel):
     revenue: int
 
 
+# English-to-German mapping
+company_size_mapping = {
+    "Small": ["Kleinstunternehmen", "Kleines Unternehmen"],
+    "Medium": ["Mittleres Unternehmen"],
+    "Large": ["Großes Unternehmen"]
+}
+
+
+def map_company_size_to_german(input_size: str):
+    if input_size in company_size_mapping:
+        return company_size_mapping[input_size]
+    return [input_size]
+
+
 def filter_grants(answers):
     """
     This function loads all grants from the CSV file.
     """
     filtered_grants = []
+
+    german_company_sizes = map_company_size_to_german(answers.company_size)
 
     with open(file_path, newline='', encoding='utf-8') as database:
         reader = csv.reader(database)
@@ -50,10 +66,13 @@ def filter_grants(answers):
             print(
                 f"Comparing: state='{answers.state}' with '{state}', companySize='{answers.company_size}' with '{company_size}', areas='{answers.areas}' with '{areas}'")
 
+            # Convert to lower case
+            state_match = answers.state.lower() in state.lower()
+            company_size_match = any(size.lower() in company_size.lower() for size in german_company_sizes)
+            areas_match = answers.areas.lower() in areas.lower()
+
             # Filter logic based on the answers
-            if (answers.state.lower() in state.lower()) and \
-                    (answers.company_size.lower() in company_size.lower()) and \
-                    (answers.areas.lower() in areas.lower()):
+            if state_match and company_size_match and areas_match:
                 filtered_grants.append({
                     "funding_option": funding_option,
                     "state": state,

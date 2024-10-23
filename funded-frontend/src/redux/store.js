@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
-import questionnaireReducer from '../components/questionnaireSlice.js';
+import questionnaireReducer from './questionnaireSlice.js';
 
 const store = configureStore({
     reducer: {

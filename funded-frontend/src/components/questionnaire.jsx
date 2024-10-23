@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {setAnswer, nextStep, previousStep} from "./questionnaireSlice";
+import {setAnswer, nextStep, previousStep} from "../redux/questionnaireSlice.js";
 import axios from 'axios';
 
 function Questionnaire() {
@@ -9,6 +9,7 @@ function Questionnaire() {
     const step = useSelector((state) => state.questionnaire.step);
     const answers = useSelector((state) => state.questionnaire.answers);
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleInputChange = (e) => {
         dispatch(setAnswer({name: e.target.name, value: e.target.value}));
@@ -16,6 +17,30 @@ function Questionnaire() {
 
     const handleNext = async (e) => {
         e.preventDefault();
+
+        // Validate the input
+        const currentQuestion = questions[step - 1];
+        const inputValue = answers[currentQuestion.name];
+
+        if (!inputValue) {
+            setErrorMessage("This field cannot be empty!");
+            return;
+        }
+
+        if (step === 4 || step === 5) {
+            if (isNaN(inputValue)) {
+                setErrorMessage("Please enter a valid number!");
+                return;
+            }
+        } else {
+            if (!isNaN(inputValue)) {
+                setErrorMessage("Please enter a valid text!");
+                return;
+            }
+        }
+
+        setErrorMessage("");
+
         if (step < 5) {
             dispatch(nextStep());
         } else {
@@ -58,18 +83,22 @@ function Questionnaire() {
             <h2 className="text-3xl mb-4 font-semibold">{questions[step - 1].label}</h2>
             <form className="w-100" style={{maxWidth: "400px"}}>
                 <input
-                    type="text"
+                    type={step === 4 || step === 5 ? "number" : "text"}
                     name={questions[step - 1].name}
                     value={answers[questions[step - 1].name]}
                     onChange={handleInputChange}
                     placeholder={questions[step - 1].placeholder}
                     className="form-control mb-3"
                 />
+                {errorMessage && (
+                    <p className="mb-3 text-danger">{errorMessage}</p>
+                )}
                 <div className="d-flex justify-content-between">
                     {step > 1 && (
                         <button
                             onClick={handlePrevious}
                             className="button px-5 py-2"
+                            type="button"
                         >
                             Back
                         </button>
@@ -77,6 +106,7 @@ function Questionnaire() {
                     <button
                         onClick={handleNext}
                         className="button px-5 py-2"
+                        type="submit"
                     >
                         {step < 5 ? "Next" : "Submit"}
                     </button>

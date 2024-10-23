@@ -19,7 +19,7 @@ function Results() {
                             <div className="card bg-dark text-white border-warning">
                                 <div className="card-body">
                                     <h5 className="card-title text-warning">{grant.funding_option}</h5>
-                                    <p className="card-text">Grant Volume: {formatGrantVolume(grant.grant_volume)} €</p>
+                                    <p className="card-text">Grant Volume: {formatGrantVolume(grant.grant_volume)}</p>
                                     <p className="card-text">Funding Quota: {grant.funding_quota} %</p>
                                     <p className="card-text">Approval Rate: {grant.approval_rate} %</p>
                                     <button className="btn btn-warning mt-2">Add to My List</button>
