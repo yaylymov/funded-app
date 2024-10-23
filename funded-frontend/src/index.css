@@ -153,10 +153,6 @@ td, th {
     text-align: center;
 }
 
-.main-content {
-    margin-top: 100px;
-}
-
 .button-list {
     border: none;
     padding: 10px 20px;
@@ -171,4 +167,77 @@ td, th {
 .button-list:hover {
     background-color: #015ae1;
     transform: scale(1.05);
+}
+
+.main-content {
+    background-color: #1f1f1f;
+    min-height: 100vh;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 100px;
+}
+
+.grant-card {
+    background-color: #2d2f36;
+    color: #f8f9fa;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(255, 193, 7, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.grant-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 11px 14px rgba(255, 193, 7, 0.4);
+}
+
+.card-title {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-primary2 {
+    background-color: #ffc107;
+    border: none;
+    color: #000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary2:hover {
+    background-color: #e0a800;
+    transform: scale(1.05);
+    color: #000;
+}
+
+.card-text {
+    margin-bottom: 0.75rem;
+}
+
+.row {
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .grant-card {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .grant-card {
+        margin-bottom: 1rem;
+    }
+    .col {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }

@@ -64,9 +64,6 @@ function Identify() {
                 } else if (sortCriteria === "Funding Quota") {
                     valueA = parseInt(a.funding_quota);
                     valueB = parseInt(b.funding_quota);
-                } else if (sortCriteria === "Approval Rate") {
-                    valueA = parseInt(a.approval_rate);
-                    valueB = parseInt(b.approval_rate);
                 } else if (sortCriteria === "Time Required") {
                     valueA = parseInt(a.time_required);
                     valueB = parseInt(b.time_required);
@@ -86,7 +83,7 @@ function Identify() {
 
     return (
         <div className="main-content container vh-100 py-5 text-white">
-            <h2 className="display-5 mb-4 font-bold text-center">Available Non-Dilutive Fundraising Options</h2>
+            <h2 className="display-5 mb-4 font-bold text-center">All Available Non-Dilutive Fundraising Options</h2>
 
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <button className="btn btn-secondary mb-2" onClick={() => navigate(-1)}>Go Back</button>
@@ -94,7 +91,6 @@ function Identify() {
                                 className="mb-2 cool-dropdown" variant="primary">
                     <Dropdown.Item onClick={() => handleSortChange("Grant Volume")}>Grant Volume</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Funding Quota")}>Funding Quota</Dropdown.Item>
-                    <Dropdown.Item onClick={() => handleSortChange("Approval Rate")}>Approval Rate</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Time Required")}>Time Required</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Benefit-Cost Score")}>Benefit-Cost
                         Score</Dropdown.Item>
