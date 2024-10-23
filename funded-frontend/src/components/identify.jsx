@@ -3,6 +3,8 @@ import axios from "axios";
 import {useNavigate} from "react-router-dom";
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import {FaSortAmountUp, FaUndo} from "react-icons/fa";
+
 
 function Identify() {
     const [data, setData] = useState([]);
@@ -44,6 +46,12 @@ function Identify() {
         }
     };
 
+    const handleResetSorting = () => {
+        setSortCriteria(null);
+        setSortOrder("asc");
+        setFilteredData(data);
+    };
+
     useEffect(() => {
         let sortedData = [...filteredData];
         if (sortCriteria) {
@@ -82,13 +90,16 @@ function Identify() {
 
             <div className="d-flex justify-content-between align-items-center mb-4">
                 <button className="btn btn-secondary mb-2" onClick={() => navigate(-1)}>Go Back</button>
-                <DropdownButton id="dropdown-basic-button" title="Sort" className="mb-2">
+                <DropdownButton id="dropdown-basic-button" title={<span><FaSortAmountUp/> Sort</span>}
+                                className="mb-2 cool-dropdown" variant="primary">
                     <Dropdown.Item onClick={() => handleSortChange("Grant Volume")}>Grant Volume</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Funding Quota")}>Funding Quota</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Approval Rate")}>Approval Rate</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Time Required")}>Time Required</Dropdown.Item>
                     <Dropdown.Item onClick={() => handleSortChange("Benefit-Cost Score")}>Benefit-Cost
                         Score</Dropdown.Item>
+                    <Dropdown.Divider/>
+                    <Dropdown.Item onClick={handleResetSorting}><FaUndo/> Reset Sorting</Dropdown.Item>
                 </DropdownButton>
             </div>
 
